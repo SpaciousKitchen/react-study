@@ -30,7 +30,6 @@ const LoginForm = ({ history }) => {
     );
   };
   const onClickGoogle = () => {
-    console.log('onClick google');
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('profile');
     firebase
@@ -43,6 +42,7 @@ const LoginForm = ({ history }) => {
           tempSetUser({
             id: result.additionalUserInfo.profile.id,
             username: result.additionalUserInfo.profile.name,
+            option: 'google',
           }),
         );
       });
