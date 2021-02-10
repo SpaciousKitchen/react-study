@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import palette from '../../lib/styles/palette';
 import Button from '../common/Button';
 
+// or using ES6 imports:
+
 /**
  * 회원가입 또는 로그인 폼을 보여줍니다.
  */
@@ -75,7 +77,7 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
-const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
+const AuthForm = ({ type, form, onChange, onSubmit, onClickGoogle, error }) => {
   const text = textMap[type];
   return (
     <AuthFormBlock>
@@ -110,20 +112,25 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
         <ButtonWithMarginTop fullWidth style={{ marginTop: '1rem' }}>
           {text}
         </ButtonWithMarginTop>
-        {type === 'login' ? (
-          <>
-            <StyleText>소셜 계정으로 로그인하세요!</StyleText>
-            <ButtonWithMarginTop google fullWidth style={{ marginTop: '1rem' }}>
-              Google 계정으로 로그인
-            </ButtonWithMarginTop>
-            <ButtonWithMarginTop kakao fullWidth style={{ marginTop: '1rem' }}>
-              카카오 로그인
-            </ButtonWithMarginTop>
-          </>
-        ) : (
-          <></>
-        )}
       </form>
+      {type === 'login' ? (
+        <>
+          <StyleText>소셜 계정으로 로그인하세요!</StyleText>
+          <ButtonWithMarginTop
+            google
+            fullWidth
+            style={{ marginTop: '1rem' }}
+            onClick={onClickGoogle}
+          >
+            Google 계정으로 로그인
+          </ButtonWithMarginTop>
+          <ButtonWithMarginTop kakao fullWidth style={{ marginTop: '1rem' }}>
+            카카오 로그인
+          </ButtonWithMarginTop>
+        </>
+      ) : (
+        <></>
+      )}
       <Footer>
         {type === 'login' ? (
           <Link to="/register">회원가입</Link>

@@ -5,6 +5,10 @@ import { changeField, initializeForm, login } from '../../modules/auth';
 import AuthForm from '../../components/auth/AuthForm';
 import { check } from '../../modules/user';
 
+import firebase from 'firebase';
+
+import { tempSetUser } from '../../modules/user';
+
 const LoginForm = ({ history }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
@@ -15,7 +19,7 @@ const LoginForm = ({ history }) => {
     user: user.user,
   }));
   // 인풋 변경 이벤트 핸들러
-  const onChange = e => {
+  const onChange = (e) => {
     const { value, name } = e.target;
     dispatch(
       changeField({
@@ -25,9 +29,31 @@ const LoginForm = ({ history }) => {
       }),
     );
   };
+  const onClickGoogle = () => {
+    console.log('onClick google');
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('profile');
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(function (result) {
+        var token = result.credential.accessToken;
+        var user = result.user;
+        dispatch(
+          tempSetUser({
+            id: result.additionalUserInfo.profile.id,
+            username: result.additionalUserInfo.profile.name,
+          }),
+        );
+      });
+  };
+
+  const onClickKaKao = () => {
+    console.log('onClickKaKao');
+  };
 
   // 폼 등록 이벤트 핸들러
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const { username, password } = form;
     dispatch(login({ username, password }));
@@ -68,6 +94,7 @@ const LoginForm = ({ history }) => {
       form={form}
       onChange={onChange}
       onSubmit={onSubmit}
+      onClickGoogle={onClickGoogle}
       error={error}
     />
   );

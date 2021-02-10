@@ -7,7 +7,7 @@ import BrandPage from './pages/BrandPage';
 import CategoryPage from './pages/CategoryPage';
 import CustomerPage from './pages/CustomerPage';
 import { Helmet } from 'react-helmet-async';
-
+import firebaseConfig from './firebase'; //firebaseSetting
 const App = () => {
   return (
     <>
