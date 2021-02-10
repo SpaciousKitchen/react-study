@@ -36,22 +36,22 @@ const Header = ({ user, onLogout }) => {
       <NavigationBlock>
         <NavBlock>
           <ul>
-            <Link>
+            <Link to="/">
               <span>홈</span>
             </Link>
           </ul>
           <ul>
-            <Link>
+            <Link to="/brand">
               <span>브랜드</span>
             </Link>
           </ul>
           <ul>
-            <Link>
+            <Link to="/category">
               <span>카테고리</span>
             </Link>
           </ul>
           <ul>
-            <Link>
+            <Link to="/customer">
               <span>고객센터</span>
             </Link>
           </ul>
