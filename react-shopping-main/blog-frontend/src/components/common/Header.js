@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Responsive from './Responsive';
 
-import cartImg from './shopping-cart.png';
 const HeaderBlock = styled.div`
   position: fixed;
   width: 100%;
