@@ -3,12 +3,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Responsive from './Responsive';
 import Button from './Button';
-
+import cartImg from './shopping-cart.png';
 const HeaderBlock = styled.div`
   position: fixed;
   width: 100%;
   background: white;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
 `;
 
 /**
@@ -48,16 +47,19 @@ const Header = ({ user, onLogout }) => {
       <HeaderBlock>
         <Wrapper>
           <Link to="/" className="logo">
-            REACTERS
+            REACTER-SHOP
           </Link>
           {user ? (
             <div className="right">
               <UserInfo>{user.username}</UserInfo>
               <Button onClick={onLogout}>로그아웃</Button>
+              <Link to="/mypage">마이페이지</Link>ㅣ
+              <Link to="/login">로그아웃</Link>
+              <img alt="shopping-cart" src={cartImg} />
             </div>
           ) : (
             <div className="right">
-              <Button to="/login">로그인</Button>
+              <Link to="/login">로그인</Link>
             </div>
           )}
         </Wrapper>
