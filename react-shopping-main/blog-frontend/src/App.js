@@ -15,9 +15,10 @@ const App = () => {
         <title>REACTET-SHOP</title>
       </Helmet>
       <Route component={MainPage} path={['/main', '/']} exact />
-      <Route component={BrandPage} path={['/brand']} />
-      <Route component={CategoryPage} path={['/category']} />
-      <Route component={CustomerPage} path={['/customer']} />
+      <Route component={BrandPage} path="/brand" />
+      <Route component={CategoryPage} path="/category" />
+      <Route component={CustomerPage} path="/customer" />
+
       <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
     </>

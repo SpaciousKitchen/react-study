@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Responsive from './Responsive';
-import Button from './Button';
+
 import cartImg from './shopping-cart.png';
 const HeaderBlock = styled.div`
   position: fixed;
@@ -35,10 +35,8 @@ const Wrapper = styled(Responsive)`
 const Spacer = styled.div`
   height: 4rem;
 `;
-
-const UserInfo = styled.div`
-  font-weight: 800;
-  margin-right: 1rem;
+const SpanStyle = styled.span`
+  cursor: pointer;
 `;
 
 const Header = ({ user, onLogout }) => {
@@ -47,15 +45,12 @@ const Header = ({ user, onLogout }) => {
       <HeaderBlock>
         <Wrapper>
           <Link to="/" className="logo">
-            REACTER-SHOP
+            REACT-SHOP
           </Link>
           {user ? (
             <div className="right">
-              <UserInfo>{user.username}</UserInfo>
-              <Button onClick={onLogout}>로그아웃</Button>
               <Link to="/mypage">마이페이지</Link>ㅣ
-              <Link to="/login">로그아웃</Link>
-              <img alt="shopping-cart" src={cartImg} />
+              <SpanStyle onClick={onLogout}>로그아웃</SpanStyle>
             </div>
           ) : (
             <div className="right">
