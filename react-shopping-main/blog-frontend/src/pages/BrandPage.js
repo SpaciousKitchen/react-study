@@ -1,11 +1,13 @@
 import React from 'react';
 import HeaderContainer from '../containers/common/HeaderContainer';
+import brandImg from './img/brand.png';
 
 const BrandPage = () => {
   return (
     <>
       <HeaderContainer />
-      <div>brand</div>
+
+      <img src={brandImg} width="100%" />
     </>
   );
 };
