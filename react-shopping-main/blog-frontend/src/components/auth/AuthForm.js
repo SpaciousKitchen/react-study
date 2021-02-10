@@ -60,7 +60,6 @@ const Footer = styled.div`
 const ButtonWithMarginTop = styled(Button)`
   margin-top: 1rem;
 `;
-const ButtonWithoutMarginTop = styled(Button)``;
 
 const textMap = {
   login: '로그인',
@@ -77,7 +76,15 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
-const AuthForm = ({ type, form, onChange, onSubmit, onClickGoogle, error }) => {
+const AuthForm = ({
+  type,
+  form,
+  onChange,
+  onSubmit,
+  onClickGoogle,
+  onClickKaKao,
+  error,
+}) => {
   const text = textMap[type];
   return (
     <AuthFormBlock>
@@ -124,7 +131,12 @@ const AuthForm = ({ type, form, onChange, onSubmit, onClickGoogle, error }) => {
           >
             Google 계정으로 로그인
           </ButtonWithMarginTop>
-          <ButtonWithMarginTop kakao fullWidth style={{ marginTop: '1rem' }}>
+          <ButtonWithMarginTop
+            kakao
+            fullWidth
+            style={{ marginTop: '1rem' }}
+            onClick={onClickKaKao}
+          >
             카카오 로그인
           </ButtonWithMarginTop>
         </>

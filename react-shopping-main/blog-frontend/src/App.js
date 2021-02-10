@@ -8,6 +8,10 @@ import CategoryPage from './pages/CategoryPage';
 import CustomerPage from './pages/CustomerPage';
 import { Helmet } from 'react-helmet-async';
 import firebaseConfig from './firebase'; //firebaseSetting
+
+window.Kakao.init('24e416865b3c2c4dd6dcaa165c152b77');
+window.Kakao.isInitialized();
+
 const App = () => {
   return (
     <>

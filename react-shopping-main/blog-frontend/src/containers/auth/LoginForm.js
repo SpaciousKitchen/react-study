@@ -36,8 +36,6 @@ const LoginForm = ({ history }) => {
       .auth()
       .signInWithPopup(provider)
       .then(function (result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
         dispatch(
           tempSetUser({
             id: result.additionalUserInfo.profile.id,
@@ -47,9 +45,30 @@ const LoginForm = ({ history }) => {
         );
       });
   };
-
   const onClickKaKao = () => {
-    console.log('onClickKaKao');
+    window.Kakao.Auth.login({
+      success: function (authObj) {
+        window.Kakao.Auth.setAccessToken(authObj.access_token);
+        window.Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+            dispatch(
+              tempSetUser({
+                id: response.id,
+                username: response.properties.nickname,
+                option: 'kakao',
+              }),
+            );
+          },
+          fail: function (error) {
+            console.log(error);
+          },
+        });
+      },
+      fail: function (err) {
+        alert(JSON.stringify(err));
+      },
+    });
   };
 
   // 폼 등록 이벤트 핸들러
@@ -95,6 +114,7 @@ const LoginForm = ({ history }) => {
       onChange={onChange}
       onSubmit={onSubmit}
       onClickGoogle={onClickGoogle}
+      onClickKaKao={onClickKaKao}
       error={error}
     />
   );

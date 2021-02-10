@@ -4,6 +4,7 @@ import { changeField, initializeForm, register } from '../../modules/auth';
 import AuthForm from '../../components/auth/AuthForm';
 import { check } from '../../modules/user';
 import { withRouter } from 'react-router-dom';
+import firebase from '../../firebase';
 
 const RegisterForm = ({ history }) => {
   const [error, setError] = useState(null);
@@ -15,7 +16,7 @@ const RegisterForm = ({ history }) => {
     user: user.user,
   }));
   // 인풋 변경 이벤트 핸들러
-  const onChange = e => {
+  const onChange = (e) => {
     const { value, name } = e.target;
     dispatch(
       changeField({
@@ -27,7 +28,7 @@ const RegisterForm = ({ history }) => {
   };
 
   // 폼 등록 이벤트 핸들러
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const { username, password, passwordConfirm } = form;
     // 하나라도 비어있다면

@@ -18,6 +18,11 @@ const HeaderContainer = () => {
         .catch((error) => {
           // An error happened.
         });
+    } else if (user?.option === 'kakao') {
+      window.Kakao.Auth.logout(function () {
+        //카카오 로그인 로그아웃
+        console.log(window.Kakao.Auth.getAccessToken());
+      });
     }
     dispatch(logout());
   };
