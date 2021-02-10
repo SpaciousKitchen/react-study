@@ -7,8 +7,9 @@
     - [x] 로그인 + 회원가입 (이미 구현 되어있음)
     - [x] 소셜 로그인
 2. 구현 동영상
+     [![Video Label](https://img.youtube.com/vi/kQf1qNUh4Ew/0.jpg)](https://youtu.be/kQf1qNUh4Ew)
     - > 링크 주소 :https://youtu.be/kQf1qNUh4Ew
-    [![Video Label](https://img.youtube.com/vi/kQf1qNUh4Ew/0.jpg)](https://youtu.be/kQf1qNUh4Ew)
+   
 
 
 
