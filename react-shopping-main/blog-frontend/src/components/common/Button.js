@@ -18,7 +18,7 @@ const buttonStyle = css`
     background: ${palette.gray[6]};
   }
 
-  ${props =>
+  ${(props) =>
     props.fullWidth &&
     css`
       padding-top: 0.75rem;
@@ -27,7 +27,7 @@ const buttonStyle = css`
       font-size: 1.125rem;
     `}
 
-  ${props =>
+  ${(props) =>
     props.cyan &&
     css`
       background: ${palette.cyan[5]};
@@ -37,6 +37,29 @@ const buttonStyle = css`
     `}
 
     &:disabled {
+    background: ${palette.gray[3]};
+    color: ${palette.gray[5]};
+    cursor: not-allowed;
+  }
+
+  ${(props) =>
+    props.kakao &&
+    css`
+      background: ${palette.yellow[0]};
+      &:hover {
+        background: ${palette.yellow[1]};
+      }
+    `}
+  ${(props) =>
+    props.google &&
+    css`
+      background: ${palette.red[0]};
+      &:hover {
+        background: ${palette.red[1]};
+      }
+    `}
+
+  &:disabled {
     background: ${palette.gray[3]};
     color: ${palette.gray[5]};
     cursor: not-allowed;
@@ -51,7 +74,7 @@ const StyledLink = styled(Link)`
   ${buttonStyle}
 `;
 
-const Button = props => {
+const Button = (props) => {
   return props.to ? (
     <StyledLink {...props} cyan={props.cyan ? 1 : 0} />
   ) : (

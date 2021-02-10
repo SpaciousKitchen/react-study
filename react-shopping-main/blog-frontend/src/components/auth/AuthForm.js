@@ -16,6 +16,11 @@ const AuthFormBlock = styled.div`
   }
 `;
 
+const StyleText = styled.p`
+  text-align: center;
+  margin-top: 30px;
+`;
+
 /**
  * 스타일링된 input
  */
@@ -53,10 +58,11 @@ const Footer = styled.div`
 const ButtonWithMarginTop = styled(Button)`
   margin-top: 1rem;
 `;
+const ButtonWithoutMarginTop = styled(Button)``;
 
 const textMap = {
   login: '로그인',
-  register: '회원가입'
+  register: '회원가입',
 };
 
 /**
@@ -101,9 +107,22 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
           />
         )}
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        <ButtonWithMarginTop cyan fullWidth style={{ marginTop: '1rem' }}>
+        <ButtonWithMarginTop fullWidth style={{ marginTop: '1rem' }}>
           {text}
         </ButtonWithMarginTop>
+        {type === 'login' ? (
+          <>
+            <StyleText>소셜 계정으로 로그인하세요!</StyleText>
+            <ButtonWithMarginTop google fullWidth style={{ marginTop: '1rem' }}>
+              Google 계정으로 로그인
+            </ButtonWithMarginTop>
+            <ButtonWithMarginTop kakao fullWidth style={{ marginTop: '1rem' }}>
+              카카오 로그인
+            </ButtonWithMarginTop>
+          </>
+        ) : (
+          <></>
+        )}
       </form>
       <Footer>
         {type === 'login' ? (

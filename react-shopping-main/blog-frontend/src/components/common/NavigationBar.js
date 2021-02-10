@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Responsive from './Responsive';
 
+import { SpanStyle } from './MenuSpan';
 const NavigationBlock = styled.div`
   position: relative;
   z-index: 10;
-  border-top: 1px solid #ddd;
-
+  border-top: 1.5px solid #ddd;
   overflow: hidden;
   text-align: center;
 `;
@@ -37,22 +37,22 @@ const Header = ({ user, onLogout }) => {
         <NavBlock>
           <ul>
             <Link to="/">
-              <span>홈</span>
+              <SpanStyle>홈</SpanStyle>
             </Link>
           </ul>
           <ul>
             <Link to="/brand">
-              <span>브랜드</span>
+              <SpanStyle>브랜드</SpanStyle>
             </Link>
           </ul>
           <ul>
             <Link to="/category">
-              <span>카테고리</span>
+              <SpanStyle>카테고리</SpanStyle>
             </Link>
           </ul>
           <ul>
             <Link to="/customer">
-              <span>고객센터</span>
+              <SpanStyle>고객센터</SpanStyle>
             </Link>
           </ul>
         </NavBlock>
