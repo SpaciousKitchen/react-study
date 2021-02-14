@@ -5,7 +5,7 @@
 1. 쇼핑몰 메인화면 제작 진행 프로세스
     - [x] gnb 기능 및gnb 클릭시 메인화면 바뀌기
     - [x] 로그인 + 회원가입 (이미 구현 되어있음)
-    - [x] 소셜 로그인
+    - [x] 소셜 로그인(firebase 인증 +Access 토큰)
 2. 구현 동영상
      [![Video Label](https://img.youtube.com/vi/kQf1qNUh4Ew/0.jpg)](https://youtu.be/kQf1qNUh4Ew)
     - > 링크 주소 :https://youtu.be/kQf1qNUh4Ew
@@ -27,7 +27,7 @@
     - 로그인
          <img src="img/loginScreen.png" width="100%">
         - local 로그인(이미 구현되어 있었음)
-        - 소셜 로그인(firebase 인증)
+        - 소셜 로그인(firebase 인증, Access 토큰)
     - 로컬 로그인
          <img src="img/locallogin.png" width="100%">
       
