@@ -21,8 +21,12 @@ function App() {
     >
       <AppBlock>
         <Button>BUTTON</Button>
-        <Button color="gray">BUTTON</Button>
-        <Button color="pink">BUTTON</Button>
+        <Button color="gray" size="small">
+          BUTTON
+        </Button>
+        <Button color="pink" size="large">
+          BUTTON
+        </Button>
       </AppBlock>
     </ThemeProvider>
   );
