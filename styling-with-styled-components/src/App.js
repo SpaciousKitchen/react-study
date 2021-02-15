@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import styled, { css } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Button from "./components/Button";
 const AppBlock = styled.div`
   width: 512px;
@@ -10,9 +10,21 @@ const AppBlock = styled.div`
 `;
 function App() {
   return (
-    <AppBlock>
-      <Button>BUTTON</Button>
-    </AppBlock>
+    <ThemeProvider
+      theme={{
+        palette: {
+          blue: "#228be6",
+          gray: "#495057",
+          pink: "#f06595",
+        },
+      }}
+    >
+      <AppBlock>
+        <Button>BUTTON</Button>
+        <Button color="gray">BUTTON</Button>
+        <Button color="pink">BUTTON</Button>
+      </AppBlock>
+    </ThemeProvider>
   );
 }
 
