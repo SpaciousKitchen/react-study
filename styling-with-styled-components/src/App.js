@@ -20,7 +20,9 @@ function App() {
       }}
     >
       <AppBlock>
-        <Button>BUTTON</Button>
+        <Button online fullWidth>
+          BUTTON
+        </Button>
         <Button color="gray" size="small">
           BUTTON
         </Button>
